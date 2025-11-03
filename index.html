@@ -2,932 +2,352 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Moatermouth | Portfolio of Anjel Robinson</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Portfolio of Moatermouth, the alias of artist and games & animation student Anjel Robinson. Illustration, animation, game art, and storytelling.">
-  <style>
-    :root {
-      --bg: #050816;
-      --bg-alt: #070b18;
-      --accent: #f97316;
-      --accent2: #ec4899;
-      --text-main: #f9fafb;
-      --text-muted: #9ca3af;
-      --card: #0b1120;
-      --radius-lg: 18px;
-      --radius-xl: 26px;
-      --shadow: 0 18px 45px rgba(15, 23, 42, 0.85);
-      --max-width: 1120px;
-      --fast: 0.18s ease-out;
-    }
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Moatermouth | Anjel Robinson Portfolio</title>
 
-    * {
-      box-sizing: border-box;
+  <style>
+    /* ===== BASE STYLES ===== */
+    body {
+      font-family: "Poppins", "Helvetica Neue", sans-serif;
+      background-color: #13121a; /* dark violet-blue */
+      color: #eae8f5; /* soft lavender white */
+      line-height: 1.7;
       margin: 0;
       padding: 0;
+      overflow-x: hidden;
     }
 
-    body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top, #020617 0, #020617 40%, #000 100%);
-      color: var(--text-main);
-      -webkit-font-smoothing: antialiased;
-      line-height: 1.6;
+    header {
+      text-align: center;
+      padding: 5rem 2rem 3rem;
+      background: linear-gradient(180deg, #191826 0%, #13121a 100%);
     }
 
-    img {
-      max-width: 100%;
+    header h1 {
+      font-size: 2.5rem;
+      color: #a8d8ff; /* cool light blue */
+      margin-bottom: 0.5rem;
+      letter-spacing: 1px;
+      animation: fadeIn 1.5s ease;
+    }
+
+    header p {
+      color: #b5e2e0; /* teal-blue */
+      font-size: 1.2rem;
+      margin-top: 0;
+      animation: fadeIn 2s ease;
+    }
+
+    /* ===== SECTION STYLES ===== */
+    section {
+      padding: 3rem 2rem;
+      max-width: 1050px;
+      margin: 0 auto;
+    }
+
+    h2 {
+      color: #a8d8ff; /* cool blue accent */
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      letter-spacing: 0.5px;
+      text-align: center;
+      font-size: 1.8rem;
+      position: relative;
+    }
+
+    h2::after {
+      content: "";
       display: block;
+      width: 80px;
+      height: 2px;
+      background: linear-gradient(90deg, #a8d8ff, #e7b4ff);
+      margin: 0.5rem auto 1.5rem;
+      border-radius: 1px;
+    }
+
+    h3 {
+      color: #b5e2e0; /* teal-blue */
+      margin-top: 1.5rem;
+      font-weight: 500;
+    }
+
+    p {
+      color: #cfd1dd;
+      max-width: 700px;
+      font-size: 1rem;
+    }
+
+    .collection {
+      margin-bottom: 2.5rem;
+      padding-left: 1rem;
+      border-left: 3px solid #d8a9ff; /* lavender pink accent */
+      transition: all 0.3s ease;
+    }
+
+    .collection:hover {
+      border-left-color: #7fd8ff;
+      transform: translateX(4px);
+    }
+
+    /* ===== GALLERY GRID ===== */
+    .gallery {
+      margin-top: 1.2rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+    }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 12px;
+      background: #1b1a24;
+      box-shadow: 0 0 0 1px rgba(167, 184, 255, 0.06),
+                  0 14px 30px rgba(0, 0, 0, 0.5);
+      cursor: pointer;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      transition: transform 0.4s ease, opacity 0.3s ease;
+    }
+
+    .gallery-item::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top left,
+                 rgba(168, 216, 255, 0.22),
+                 transparent 55%);
+      mix-blend-mode: screen;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.05);
+      opacity: 0.92;
+    }
+
+    .gallery-item:hover::after {
+      opacity: 1;
+    }
+
+    .gallery-item span {
+      position: absolute;
+      left: 10px;
+      bottom: 10px;
+      font-size: 0.75rem;
+      background: rgba(10, 10, 16, 0.75);
+      padding: 0.25rem 0.5rem;
+      border-radius: 999px;
+      color: #eae8f5;
+      opacity: 0;
+      transform: translateY(4px);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .gallery-item:hover span {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ===== CONTACT SECTION ===== */
+    .contact-section {
+      margin-top: 3rem;
+      border-top: 1px solid #29283a;
+      padding-top: 2rem;
+      text-align: center;
+    }
+
+    .contact-section p {
+      max-width: 700px;
+      margin: 0 auto 1.5rem;
+    }
+
+    .contact-section ul {
+      list-style: none;
+      padding: 0;
+      display: inline-block;
+      text-align: left;
+    }
+
+    .contact-section li {
+      margin-bottom: 0.7rem;
+      font-size: 1rem;
     }
 
     a {
-      color: inherit;
+      color: #7fd8ff; /* aqua-teal */
       text-decoration: none;
+      transition: all 0.3s ease;
     }
 
-    /* LAYOUT */
-
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 20;
-      backdrop-filter: blur(18px);
-      background: linear-gradient(to bottom, rgba(2, 6, 23, 0.96), rgba(2, 6, 23, 0.65), transparent);
-      border-bottom: 1px solid rgba(148, 163, 184, 0.3);
-    }
-
-    .nav {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 12px 20px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-    }
-
-    .nav-left {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .logo-circle {
-      width: 34px;
-      height: 34px;
-      border-radius: 999px;
-      background: radial-gradient(circle at top left, #f97316, #ec4899, #6366f1);
-      box-shadow: 0 0 24px rgba(139, 92, 246, 0.7);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      font-size: 18px;
-      color: #f9fafb;
-    }
-
-    .brand-text {
-      display: flex;
-      flex-direction: column;
-      line-height: 1.1;
-    }
-
-    .brand-text span:first-child {
-      font-size: 15px;
-      font-weight: 600;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-    }
-
-    .brand-text span:last-child {
-      font-size: 11px;
-      color: var(--text-muted);
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 18px;
-      font-size: 13px;
-      color: var(--text-muted);
-    }
-
-    .nav-links a {
-      position: relative;
-      padding-bottom: 3px;
-      cursor: pointer;
-      transition: color var(--fast);
-    }
-
-    .nav-links a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      width: 0%;
-      height: 2px;
-      background: linear-gradient(90deg, var(--accent), var(--accent2));
-      border-radius: 999px;
-      transition: width var(--fast);
-    }
-
-    .nav-links a:hover {
-      color: #e5e7eb;
-    }
-
-    .nav-links a:hover::after {
-      width: 100%;
-    }
-
-    .nav-cta {
-      padding: 7px 14px;
-      border-radius: 999px;
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      border: 1px solid rgba(129, 140, 248, 0.8);
-      background: radial-gradient(circle at top left, rgba(129, 140, 248, 0.24), rgba(15, 23, 42, 0.9));
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      cursor: pointer;
-      transition: background var(--fast), transform var(--fast), box-shadow var(--fast);
-      box-shadow: 0 0 18px rgba(79, 70, 229, 0.5);
-    }
-
-    .nav-cta:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 0 26px rgba(79, 70, 229, 0.9);
-    }
-
-    @media (max-width: 720px) {
-      .nav-links {
-        display: none;
-      }
-    }
-
-    main {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 40px 20px 64px;
-    }
-
-    section {
-      margin-bottom: 70px;
-    }
-
-    .section-header {
-      margin-bottom: 18px;
-    }
-
-    .section-title {
-      font-size: 20px;
-      font-weight: 600;
-    }
-
-    .section-subtitle {
-      font-size: 13px;
-      color: var(--text-muted);
-    }
-
-    /* HERO */
-
-    .hero {
-      display: grid;
-      grid-template-columns: minmax(0, 3fr) minmax(0, 2.4fr);
-      gap: 34px;
-      align-items: center;
-      margin-bottom: 70px;
-    }
-
-    @media (max-width: 900px) {
-      .hero {
-        grid-template-columns: minmax(0, 1fr);
-      }
-    }
-
-    .hero-text h1 {
-      font-size: clamp(32px, 5vw, 44px);
-      line-height: 1.05;
-      margin-bottom: 16px;
-    }
-
-    .hero-text h1 span.highlight {
-      background: linear-gradient(120deg, #f97316, #ec4899);
-      -webkit-background-clip: text;
-      color: transparent;
-    }
-
-    .hero-sub {
-      font-size: 15px;
-      color: var(--text-muted);
-      max-width: 480px;
-      margin-bottom: 16px;
-    }
-
-    .tagline {
-      font-size: 13px;
-      color: #e5e7eb;
-      margin-bottom: 20px;
-    }
-
-    .hero-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 22px;
-    }
-
-    .pill {
-      padding: 4px 11px;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.7);
-      font-size: 11px;
-      background: rgba(15, 23, 42, 0.95);
-      color: #e5e7eb;
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 10px;
-    }
-
-    .btn {
-      padding: 10px 18px;
-      border-radius: 999px;
-      font-size: 13px;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      cursor: pointer;
-      border: none;
-      outline: none;
-      transition: transform var(--fast), box-shadow var(--fast), background var(--fast), border-color var(--fast), color var(--fast);
-    }
-
-    .btn-primary {
-      background: linear-gradient(120deg, #f97316, #ec4899);
-      color: #f9fafb;
-      box-shadow: 0 14px 30px rgba(88, 28, 135, 0.7);
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 18px 40px rgba(76, 29, 149, 0.9);
-    }
-
-    .btn-ghost {
-      border: 1px solid rgba(148, 163, 184, 0.6);
-      background: rgba(15, 23, 42, 0.9);
-      color: #e5e7eb;
-    }
-
-    .btn-ghost:hover {
-      transform: translateY(-1px);
-      border-color: rgba(148, 163, 184, 1);
-      background: rgba(15, 23, 42, 1);
-    }
-
-    .hero-note {
-      font-size: 12px;
-      color: var(--text-muted);
-    }
-
-    .hero-media {
-      position: relative;
-    }
-
-    .hero-art {
-      height: 320px;
-      border-radius: var(--radius-xl);
-      background:
-        radial-gradient(circle at top left, rgba(236, 72, 153, 0.32), transparent 60%),
-        radial-gradient(circle at bottom right, rgba(59, 130, 246, 0.35), transparent 55%),
-        #020617;
-      border: 1px solid rgba(148, 163, 184, 0.55);
-      overflow: hidden;
-      box-shadow: var(--shadow);
-      display: flex;
-      align-items: flex-end;
-      padding: 16px;
-      position: relative;
-    }
-
-    .hero-art-inner {
-      width: 100%;
-      height: 100%;
-      border-radius: 22px;
-      border: 1px dashed rgba(148, 163, 184, 0.35);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 13px;
-      color: var(--text-muted);
-      text-align: center;
-      padding: 0 24px;
-    }
-
-    .hero-badge {
-      position: absolute;
-      left: 14px;
-      top: 14px;
-      padding: 6px 11px;
-      border-radius: 999px;
-      font-size: 11px;
-      background: rgba(15, 23, 42, 0.9);
-      border: 1px solid rgba(148, 163, 184, 0.7);
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      color: #e5e7eb;
-    }
-
-    .hero-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 999px;
-      background: #22c55e;
-    }
-
-    /* WORK / BUCKETS */
-
-    .work-intro {
-      font-size: 14px;
-      color: var(--text-muted);
-      max-width: 520px;
-      margin-bottom: 16px;
-    }
-
-    .bucket-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 18px;
-    }
-
-    @media (max-width: 1020px) {
-      .bucket-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-    }
-
-    @media (max-width: 680px) {
-      .bucket-grid {
-        grid-template-columns: minmax(0, 1fr);
-      }
-    }
-
-    .bucket-card {
-      background: radial-gradient(circle at top, rgba(15, 23, 42, 0.6), rgba(15, 23, 42, 1));
-      border-radius: var(--radius-lg);
-      border: 1px solid rgba(148, 163, 184, 0.45);
-      padding: 12px 12px 10px;
-      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.8);
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      transition: transform var(--fast), box-shadow var(--fast), border-color var(--fast), background var(--fast);
-      cursor: default;
-    }
-
-    .bucket-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 18px 42px rgba(15, 23, 42, 0.95);
-      border-color: rgba(129, 140, 248, 0.85);
-      background: radial-gradient(circle at top, rgba(15, 23, 42, 0.3), rgba(15, 23, 42, 1));
-    }
-
-    .bucket-thumb {
-      border-radius: 14px;
-      height: 150px;
-      background: linear-gradient(135deg, #0f172a, #1f2937);
-      border: 1px solid rgba(148, 163, 184, 0.6);
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 12px;
-      color: var(--text-muted);
-      text-align: center;
-      padding: 10px;
-    }
-
-    .bucket-title {
-      font-size: 15px;
-      font-weight: 600;
-    }
-
-    .bucket-desc {
-      font-size: 13px;
-      color: var(--text-muted);
-    }
-
-    .bucket-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 4px;
-      margin-top: 4px;
-    }
-
-    .bucket-tags span {
-      font-size: 11px;
-      padding: 3px 7px;
-      border-radius: 999px;
-      background: rgba(15, 23, 42, 0.9);
-      border: 1px solid rgba(148, 163, 184, 0.4);
-      color: #e5e7eb;
-    }
-
-    /* ABOUT */
-
-    .about-layout {
-      display: grid;
-      grid-template-columns: minmax(0, 3fr) minmax(0, 2.2fr);
-      gap: 26px;
-    }
-
-    @media (max-width: 880px) {
-      .about-layout {
-        grid-template-columns: minmax(0, 1fr);
-      }
-    }
-
-    .about-text {
-      font-size: 14px;
-      color: #e5e7eb;
-    }
-
-    .about-text p + p {
-      margin-top: 10px;
-    }
-
-    .about-card {
-      background: linear-gradient(145deg, #020617, #020617 35%, #020617);
-      border-radius: var(--radius-lg);
-      border: 1px solid rgba(148, 163, 184, 0.45);
-      padding: 16px 16px 14px;
-      font-size: 13px;
-    }
-
-    .about-photo {
-      width: 72px;
-      height: 72px;
-      border-radius: 999px;
-      background: radial-gradient(circle at top left, #f97316, #ec4899, #6366f1);
-      margin-bottom: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      font-size: 26px;
-      color: #f9fafb;
-      box-shadow: 0 14px 30px rgba(79, 70, 229, 0.9);
-    }
-
-    .about-meta-row {
-      margin-bottom: 8px;
-    }
-
-    .about-meta-label {
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--text-muted);
-    }
-
-    .about-meta-value {
-      margin-top: 3px;
-    }
-
-    .resume-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      margin-top: 10px;
-      padding: 7px 12px;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.75);
-      background: rgba(15, 23, 42, 0.94);
-      font-size: 12px;
-      cursor: pointer;
-      transition: background var(--fast), transform var(--fast), border-color var(--fast);
-    }
-
-    .resume-link:hover {
-      background: rgba(15, 23, 42, 1);
-      transform: translateY(-1px);
-      border-color: rgba(148, 163, 184, 1);
-    }
-
-    /* CONTACT */
-
-    .contact-card {
-      border-radius: var(--radius-xl);
-      border: 1px solid rgba(148, 163, 184, 0.45);
-      background: radial-gradient(circle at top right, rgba(129, 140, 248, 0.25), transparent 58%), #020617;
-      padding: 18px 16px;
-      display: grid;
-      grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
-      gap: 22px;
-      box-shadow: var(--shadow);
-    }
-
-    @media (max-width: 840px) {
-      .contact-card {
-        grid-template-columns: minmax(0, 1fr);
-      }
-    }
-
-    .contact-main-title {
-      font-size: 18px;
-      margin-bottom: 6px;
-    }
-
-    .contact-main-text {
-      font-size: 14px;
-      color: #e5e7eb;
-      margin-bottom: 10px;
-    }
-
-    .contact-note {
-      font-size: 12px;
-      color: var(--text-muted);
-      margin-bottom: 12px;
-    }
-
-    .contact-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-
-    .btn-outline {
-      padding: 8px 14px;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.8);
-      background: rgba(15, 23, 42, 0.96);
-      font-size: 12px;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      cursor: pointer;
-      transition: background var(--fast), transform var(--fast), border-color var(--fast);
-    }
-
-    .btn-outline:hover {
-      background: rgba(15, 23, 42, 1);
-      transform: translateY(-1px);
-      border-color: rgba(148, 163, 184, 1);
-    }
-
-    .contact-meta {
-      font-size: 13px;
-      color: var(--text-muted);
-    }
-
-    .contact-meta-row {
-      margin-bottom: 8px;
-    }
-
-    .contact-meta-label {
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: #9ca3af;
-    }
-
-    .contact-meta-value {
-      margin-top: 3px;
-      color: #e5e7eb;
-    }
-
-    .social-row {
-      margin-top: 10px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-
-    .social-chip {
-      font-size: 12px;
-      padding: 5px 10px;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.7);
-      background: rgba(15, 23, 42, 0.96);
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      cursor: pointer;
-      transition: border-color var(--fast), background var(--fast), transform var(--fast);
-    }
-
-    .social-chip:hover {
-      border-color: rgba(129, 140, 248, 0.95);
-      background: rgba(15, 23, 42, 1);
-      transform: translateY(-1px);
+    a:hover {
+      color: #e7b4ff; /* lavender-pink hover */
+      text-shadow: 0 0 6px rgba(231, 180, 255, 0.6);
     }
 
     footer {
-      padding: 22px 20px 30px;
-      font-size: 11px;
-      color: var(--text-muted);
       text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+      color: #86839a;
+      border-top: 1px solid #29283a;
+      margin-top: 3rem;
+    }
+
+    /* ===== ANIMATIONS ===== */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 700px) {
+      header h1 { font-size: 2rem; }
+      h2 { font-size: 1.5rem; }
+      section { padding: 2rem 1.5rem; }
+      .collection { padding-left: 0.75rem; }
     }
   </style>
 </head>
+
 <body>
+  <!-- ===== HEADER ===== -->
   <header>
-    <nav class="nav">
-      <div class="nav-left">
-        <div class="logo-circle">M</div>
-        <div class="brand-text">
-          <span>MOATERMOUTH</span>
-          <span>alias of Anjel Robinson</span>
-        </div>
-      </div>
-      <div class="nav-links">
-        <a href="#top">Home</a>
-        <a href="#work">Work</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-      </div>
-      <button class="nav-cta" onclick="scrollToSection('contact')">
-        ✉️ Contact
-      </button>
-    </nav>
+    <h1>Anjel Robinson</h1>
+    <p>Visual Development Artist · Illustrator · Animator</p>
   </header>
 
-  <main>
-    <a id="top"></a>
-    <!-- HERO / HOME -->
-    <section class="hero" aria-label="Intro">
-      <div class="hero-text">
-        <h1>
-          I’m <span class="highlight">Moatermouth</span>,<br>
-          the alias of <span>Anjel Robinson</span>.
-        </h1>
-        <p class="hero-sub">
-          Games &amp; Animation student, illustrator, and storyteller creating
-          character-driven worlds, weird little guys, and vibrant scenes that live
-          between playful and unsettling.
-        </p>
-        <p class="tagline">
-          I work across digital painting, traditional media, murals, and game art to bring
-          expressive stories and creatures to life.
-        </p>
-        <div class="hero-tags">
-          <span class="pill">Games &amp; Animation</span>
-          <span class="pill">Illustration</span>
-          <span class="pill">Character Design</span>
-          <span class="pill">Storytelling</span>
-        </div>
-        <div class="hero-actions">
-          <button class="btn btn-primary" onclick="scrollToSection('work')">
-            📁 View selected work
-          </button>
-          <button class="btn btn-ghost" onclick="scrollToSection('about')">
-            👀 About Moatermouth
-          </button>
-        </div>
-        <p class="hero-note">
-          Based in Cincinnati, OH · Open to co-op, internships, and freelance projects.
-        </p>
-      </div>
+  <!-- ===== PORTFOLIO SECTIONS ===== -->
+  <section id="portfolio" class="portfolio-sections">
+    <h2>🎨 Final Portfolio Collections</h2>
 
-      <div class="hero-media">
-        <div class="hero-art">
-          <!-- Replace the text block below by setting a real image:
-               Example: style="background-image:url('images/hero-piece.jpg'); background-size:cover; background-position:center;" -->
-          <div class="hero-art-inner">
-            Drop your favorite key illustration, mural, or animation still here as a hero image.
-            For example, use a high-res crop from one of the pieces on moatermouth.portfolio.site.
-          </div>
-          <div class="hero-badge">
-            <span class="hero-dot"></span>
-            <span>Portfolio in progress · Fall 2025</span>
-          </div>
+    <!-- DESIGN & BRANDING -->
+    <div class="collection">
+      <h3>Design & Branding</h3>
+      <p>Clean, illustrative identity work for posters, logos, and client projects that focus on strong visual storytelling and cohesive design systems.</p>
+
+      <div class="gallery">
+        <div class="gallery-item">
+          <img src="images/branding-1.jpg" alt="Branding project 1">
+          <span>Logo Suite</span>
+        </div>
+        <div class="gallery-item">
+          <img src="images/branding-2.jpg" alt="Branding project 2">
+          <span>Brand Poster</span>
+        </div>
+        <div class="gallery-item">
+          <img src="images/branding-3.jpg" alt="Branding project 3">
+          <span>Identity System</span>
         </div>
       </div>
-    </section>
+    </div>
 
-    <!-- WORK / BUCKETS -->
-    <section id="work" aria-label="Selected work">
-      <div class="section-header">
-        <h2 class="section-title">Selected Work</h2>
-        <p class="section-subtitle">
-          A few “buckets” of what I make. These match the kind of work I want to do in co-op and beyond.
-        </p>
-      </div>
+    <!-- ILLUSTRATION & VISUAL DEVELOPMENT -->
+    <div class="collection">
+      <h3>Illustration & Visual Development</h3>
+      <p>Character-driven illustration and visual development exploring personality, mood, and worldbuilding through expressive design and storytelling.</p>
 
-      <p class="work-intro">
-        This portfolio is a mix of studio projects, personal pieces, and community work. Each section
-        can link out to full galleries or external pages later as I expand the site.
-      </p>
-
-      <div class="bucket-grid">
-        <!-- BUCKET 1: Illustration / Painting -->
-        <article class="bucket-card">
-          <div class="bucket-thumb">
-            <!-- Replace with an image, e.g.:
-                 <img src="images/illustration-thumb.jpg" alt="Illustration and painting by Moatermouth"> -->
-            Illustration &amp; painting cover image
-          </div>
-          <h3 class="bucket-title">Illustration &amp; Painting</h3>
-          <p class="bucket-desc">
-            Portraits, narrative scenes, and surreal character pieces in both traditional and digital
-            media, including works like “Raimi in Motion” and my recent mixed-media portraits.
-          </p>
-          <div class="bucket-tags">
-            <span>Digital painting</span>
-            <span>Traditional media</span>
-            <span>Color &amp; mood</span>
-          </div>
-        </article>
-
-        <!-- BUCKET 2: Character & Game Art -->
-        <article class="bucket-card">
-          <div class="bucket-thumb">
-            <!-- Replace with an image:
-                 <img src="images/gameart-thumb.jpg" alt="Character and game art by Moatermouth"> -->
-            Character / game art cover image
-          </div>
-          <h3 class="bucket-title">Character &amp; Game Art</h3>
-          <p class="bucket-desc">
-            Weird little guys, enemy designs, sprites, and concept sheets created for game jams and
-            original IP ideas, focusing on personality, silhouettes, and storytelling.
-          </p>
-          <div class="bucket-tags">
-            <span>Character design</span>
-            <span>Game sprites</span>
-            <span>Concept art</span>
-          </div>
-        </article>
-
-        <!-- BUCKET 3: Animation & Motion -->
-        <article class="bucket-card">
-          <div class="bucket-thumb">
-            <!-- Replace with a thumbnail linked to a reel if you want -->
-            Animation / motion still
-          </div>
-          <h3 class="bucket-title">Animation &amp; Motion</h3>
-          <p class="bucket-desc">
-            Short loops, pendulum and ball tests, character motion, and experimental pieces that
-            build toward a fuller demo reel in games and animation.
-          </p>
-          <div class="bucket-tags">
-            <span>2D animation</span>
-            <span>Motion tests</span>
-            <span>Demo reel (in progress)</span>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- ABOUT -->
-    <section id="about" aria-label="About">
-      <div class="section-header">
-        <h2 class="section-title">About Moatermouth</h2>
-        <p class="section-subtitle">
-          A bit more about who I am, what I study, and how I work.
-        </p>
-      </div>
-
-      <div class="about-layout">
-        <div class="about-text">
-          <p>
-            Moatermouth is the alias of <strong>Anjel Robinson</strong>, a Cincinnati-based
-            artist and Games &amp; Animation student who tells stories through character-driven
-            illustration, animation, and game art.
-          </p>
-          <p>
-            My work lives at the intersection of playful and unsettling: bright colors, expressive
-            faces, and surreal scenes that hint at something a little off. I move between digital
-            painting, traditional media, murals, and experimental game projects, always chasing
-            strong mood and personality.
-          </p>
-          <p>
-            Outside of class, I build personal IPs, develop characters, and explore storytelling
-            through comics, animation, and interactive work. I’m interested in co-op and internship
-            opportunities that let me grow as a visual storyteller, collaborate with teams, and make
-            art that sticks in people’s heads.
-          </p>
+      <div class="gallery">
+        <div class="gallery-item">
+          <img src="images/illustration-1.jpg" alt="Character illustration 1">
+          <span>Character Lineup</span>
         </div>
-
-        <aside class="about-card">
-          <div class="about-photo">
-            M
-          </div>
-          <div class="about-meta-row">
-            <div class="about-meta-label">Name</div>
-            <div class="about-meta-value">Moatermouth (alias of Anjel Robinson)</div>
-          </div>
-          <div class="about-meta-row">
-            <div class="about-meta-label">Based in</div>
-            <div class="about-meta-value">Cincinnati, Ohio · USA</div>
-          </div>
-          <div class="about-meta-row">
-            <div class="about-meta-label">Focus</div>
-            <div class="about-meta-value">Games &amp; Animation · Illustration · Character Design</div>
-          </div>
-          <div class="about-meta-row">
-            <div class="about-meta-label">Contact</div>
-            <div class="about-meta-value">
-              <a href="mailto:moatermouthart@gmail.com">moatermouthart@gmail.com</a>
-            </div>
-          </div>
-          <a class="resume-link" href="resume.pdf" target="_blank" rel="noreferrer">
-            🗂️ Download resume (PDF)
-          </a>
-          <p style="margin-top:8px; font-size:11px; color:var(--text-muted);">
-            (Place a file named <code>resume.pdf</code> in this GitHub repo so this link works.)
-          </p>
-        </aside>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact" aria-label="Contact">
-      <div class="section-header">
-        <h2 class="section-title">Let’s work together</h2>
-        <p class="section-subtitle">
-          For co-op, internships, commissions, or collaborations.
-        </p>
-      </div>
-
-      <div class="contact-card">
-        <div>
-          <h3 class="contact-main-title">Say hi or share a project idea</h3>
-          <p class="contact-main-text">
-            I’m open to opportunities in games, animation, illustration, and community-based art.
-            If you have a project that needs expressive characters, weird creatures, or bold visuals,
-            I’d love to hear about it.
-          </p>
-          <p class="contact-note">
-            Email is the best way to reach me. I’m happy to talk about timelines, scope, or just
-            brainstorm possibilities.
-          </p>
-          <div class="contact-actions">
-            <a class="btn-outline" href="mailto:moatermouthart@gmail.com">
-              ✉️ Email Moatermouth
-            </a>
-            <!-- Replace # with real links when ready -->
-            <a class="btn-outline" href="#" target="_blank" rel="noreferrer">
-              🗂️ View full portfolio (external)
-            </a>
-          </div>
+        <div class="gallery-item">
+          <img src="images/illustration-2.jpg" alt="Character illustration 2">
+          <span>Color Script</span>
         </div>
-
-        <aside class="contact-meta">
-          <div class="contact-meta-row">
-            <div class="contact-meta-label">Current status</div>
-            <div class="contact-meta-value">
-              Games &amp; Animation student · seeking co-op / internship opportunities and select freelance work.
-            </div>
-          </div>
-          <div class="contact-meta-row">
-            <div class="contact-meta-label">Preferred collaborations</div>
-            <div class="contact-meta-value">
-              Indie game teams, animation projects, illustration and publishing, community arts and education.
-            </div>
-          </div>
-          <div class="social-row">
-            <a class="social-chip" href="#" target="_blank" rel="noreferrer">Instagram</a>
-            <a class="social-chip" href="#" target="_blank" rel="noreferrer">ArtStation</a>
-            <a class="social-chip" href="#" target="_blank" rel="noreferrer">Behance</a>
-            <a class="social-chip" href="#" target="_blank" rel="noreferrer">LinkedIn</a>
-          </div>
-        </aside>
+        <div class="gallery-item">
+          <img src="images/illustration-3.jpg" alt="Character illustration 3">
+          <span>Visual Dev Spread</span>
+        </div>
       </div>
-    </section>
-  </main>
+    </div>
 
+    <!-- FINE ART & VISUAL STUDIES -->
+    <div class="collection">
+      <h3>Fine Art & Visual Studies</h3>
+      <p>Realistic and abstract works blending traditional and digital media to explore light, form, identity, and emotional atmosphere.</p>
+
+      <div class="gallery">
+        <div class="gallery-item">
+          <img src="images/fineart-1.jpg" alt="Fine art portrait 1">
+          <span>Portrait Study</span>
+        </div>
+        <div class="gallery-item">
+          <img src="images/fineart-2.jpg" alt="Fine art portrait 2">
+          <span>Mixed Media</span>
+        </div>
+        <div class="gallery-item">
+          <img src="images/fineart-3.jpg" alt="Fine art portrait 3">
+          <span>Experimental Piece</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- PRINT & PROMOTIONAL DESIGN -->
+    <div class="collection">
+      <h3>Print & Promotional Design</h3>
+      <p>Posters, book covers, and product designs that merge illustrative storytelling with graphic clarity and compositional intent.</p>
+
+      <div class="gallery">
+        <div class="gallery-item">
+          <img src="images/print-1.jpg" alt="Poster design 1">
+          <span>Event Poster</span>
+        </div>
+        <div class="gallery-item">
+          <img src="images/print-2.jpg" alt="Book cover 1">
+          <span>Book Cover</span>
+        </div>
+        <div class="gallery-item">
+          <img src="images/print-3.jpg" alt="Package design 1">
+          <span>Package Design</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ANIMATION & MOTION STUDIES -->
+    <div class="collection">
+      <h3>Animation & Motion Studies</h3>
+      <p>Animation stills, sequences, and experimental motion work that bring rhythm, timing, and narrative energy to life.</p>
+
+      <div class="gallery">
+        <div class="gallery-item">
+          <img src="images/animation-1.jpg" alt="Animation still 1">
+          <span>Animation Still</span>
+        </div>
+        <div class="gallery-item">
+          <img src="images/animation-2.jpg" alt="Storyboard frame">
+          <span>Storyboard</span>
+        </div>
+        <div class="gallery-item">
+          <img src="images/animation-3.jpg" alt="Motion experiment">
+          <span>Motion Study</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT SECTION ===== -->
+  <section id="contact" class="contact-section">
+    <h2>📬 Contact & Links</h2>
+    <p>Let’s connect! I’m always open to collaborations, commissions, or creative opportunities in visual development, illustration, and animation.</p>
+
+    <ul>
+      <li>🎨 <strong>Instagram:</strong> <a href="https://www.instagram.com/moatermouth/" target="_blank">@moatermouth</a></li>
+      <li>🎥 <strong>YouTube:</strong> <a href="https://www.youtube.com/@moatermouth7141" target="_blank">@moatermouth7141</a></li>
+      <li>💼 <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/anjel-rob/" target="_blank">Anjel Robinson</a></li>
+      <li>🎓 <strong>Handshake:</strong> <a href="https://uc.joinhandshake.com/profiles/anjel-rob" target="_blank">University of Cincinnati Profile</a></li>
+    </ul>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
   <footer>
-    © <span id="year"></span> Moatermouth · Portfolio of Anjel Robinson.
+    © 2025 Anjel Robinson · Moatermouth Portfolio
   </footer>
-
-  <script>
-    // update year
-    document.getElementById("year").textContent = new Date().getFullYear();
-
-    function scrollToSection(id) {
-      const el = document.getElementById(id);
-      if (!el) return;
-      const offset = 70;
-      const top = el.getBoundingClientRect().top + window.scrollY - offset;
-      window.scrollTo({ top, behavior: "smooth" });
-    }
-
-    // smooth scroll for nav links
-    document.querySelectorAll(".nav-links a").forEach(link => {
-      link.addEventListener("click", (e) => {
-        e.preventDefault();
-        const href = link.getAttribute("href");
-        if (!href || !href.startsWith("#")) return;
-        const targetId = href.slice(1);
-        scrollToSection(targetId);
-      });
-    });
-  </script>
 </body>
 </html>
